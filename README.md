@@ -8,8 +8,8 @@ Download the folder "uvncRepeater" and follow the istruction in the original rea
 Step 2 -
 make sure you have assigned the correct read permissions to the following files for example
 ```
-sudo chmod 777 /var/log/uvncrepeater.log
-sudo chmod 777 /etc/uvnc/uvncrepeater.ini
+sudo chmod 644 /var/log/uvncrepeater.log
+sudo chmod 644 /etc/uvnc/uvncrepeater.ini
 ```
 Download and use my webpage.php with your apache server
 
