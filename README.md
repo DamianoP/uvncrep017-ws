@@ -1,4 +1,5 @@
-# uvnc-repeater-server-status-viewer-in-php
+# Web page to view the servers connected to your repeater
+
 I developed a web page that allows you to see which servers are connected to your uvnc repeater (for linux only)
 
 Step 1 - You must recompile and reinstall your repeater for linux, or you must install your repeater
