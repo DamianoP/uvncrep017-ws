@@ -98,6 +98,6 @@ for($i=count($vncFile); $i>0 && $counter<$goalCounter; $i--){
  <?php } ?>
  </table>
  <br><br>
-<script>setTimeout(function(){ location.reload(); }, 10000);//60000);</script>
+<script>setTimeout(function(){ location.reload(); }, 10000);</script>
 </body>
 </html>
