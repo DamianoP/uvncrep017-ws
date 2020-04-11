@@ -1141,7 +1141,7 @@ static bool isCodeInIdList(long code)
     
     for(ii = 0; ii < ID_LIST_SIZE; ii++) {
         if (code == idList[ii]) {
-            debug(LEVEL_3, "isCodeInIdList(): ID code match found (%ld)\n", code);
+            debug(LEVEL_0, "isCodeInIdList(): ID code match found >>%ld\n", code);
             return true;
         }
     }
