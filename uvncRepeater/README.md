@@ -7,6 +7,7 @@ debug(LEVEL_3, "isCodeInIdList(): ID code match found (%ld)\n", code);
 ```
 debug(LEVEL_0, "isCodeInIdList(): ID code match found >>%ld\n", code);
 ```
+# The original author is https://github.com/qian-jiahong/uvncrep017-ws
 # _____________________________________
 # Original readme:
 
