@@ -1,3 +1,15 @@
+# Note: this is the original readme from https://github.com/qian-jiahong/uvncrep017-ws
+# I have only changed in the file repeater.cpp the string 
+```
+debug(LEVEL_3, "isCodeInIdList(): ID code match found (%ld)\n", code);
+```
+# with
+```
+debug(LEVEL_0, "isCodeInIdList(): ID code match found >>%ld\n", code);
+```
+
+# Original readme:
+
 # UltraVNC Repeater
 
 ## How to install UltraVNC Repeater for Linux (Debian & CentOS)
