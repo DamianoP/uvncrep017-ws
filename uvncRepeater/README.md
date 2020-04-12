@@ -1,11 +1,26 @@
 # Note: this is the original readme from https://github.com/qian-jiahong/uvncrep017-ws
-# I have only changed in the file repeater.cpp the string 
+# I have only changed in the file repeater.cpp the code  
 ```
-debug(LEVEL_3, "isCodeInIdList(): ID code match found (%ld)\n", code);
+if (requireListedId) {
+  if (!isCodeInIdList(code)) {
+    debug(LEVEL_2,"acceptConnection(): Id code does not match codes in list, closing connection\n", code);
+    close(connection);
+    return;
+}
 ```
 # with
 ```
-debug(LEVEL_0, "isCodeInIdList(): ID code match found >>%ld\n", code);
+if (requireListedId) {
+  if (!isCodeInIdList(code)) {
+    debug(LEVEL_2,"acceptConnection(): Id code does not match codes in list, closing connection\n", code);
+    close(connection);
+    return;
+  }else{
+      if(connectionFrom == CONNECTION_FROM_SERVER){
+        debug(LEVEL_0, "vncWebInterface: ID >>%ld\n", code);
+      } 
+  }
+}
 ```
 # The original author is https://github.com/qian-jiahong/uvncrep017-ws
 # _____________________________________
