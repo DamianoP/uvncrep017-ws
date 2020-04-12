@@ -80,8 +80,6 @@
 //Use safer openbsd stringfuncs: strlcpy, strlcat
 #include "openbsd_stringfuncs.h"
 
-char DEFAULT_INI_FILE_PATH_AND_NAME[] = "/etc/uvnc/uvncrepeater.ini";
-
 typedef char rfbProtocolVersionMsg[SIZE_RFBPROTOCOLVERSIONMSG+1]; /* allow extra byte for null */
 
 typedef struct _repeaterInfo {
@@ -580,7 +578,7 @@ static int findViewerList(long code)
 
 
 //Check IdCode string, require that 1st 3 characters of IdCode are 'I','D',':'
-static bool checkIdCode(char *IdCode)
+static bool checkIdCode(char *IdCode) 
 {
     if ((IdCode[0] != 'I') || (IdCode[1] != 'D') || (IdCode[2] != ':')) {
         debug(LEVEL_3, "checkIdCode(): %s is not IdCode string\n", IdCode);
@@ -1135,13 +1133,13 @@ static void forkRepeater(int serverSocket, int viewerSocket, long idCode)
 
 //Compare ID code against codes in list
 //return true if match found, false otherwise
-static bool isCodeInIdList(long code)
+static bool isCodeInIdList(long code) 
 {
     int ii;
     
     for(ii = 0; ii < ID_LIST_SIZE; ii++) {
         if (code == idList[ii]) {
-            debug(LEVEL_0, "isCodeInIdList(): ID code match found >>%ld\n", code);
+            debug(LEVEL_3, "isCodeInIdList(): ID code match found >>%ld\n", code);
             return true;
         }
     }
@@ -1283,7 +1281,7 @@ static void acceptConnection(int socket, int connectionFrom)
 
                 //id is an IdCode string, parse it
                 code = parseId(id);
-                if (-1 == code) {
+                if (-1 == code) { 
                     debug(LEVEL_3, "acceptConnection(): parseId returned error, closing connection\n");
                     close(connection);
                     return;
@@ -1308,6 +1306,11 @@ static void acceptConnection(int socket, int connectionFrom)
                             "acceptConnection(): Id code does not match codes in list, closing connection\n", code);
                         close(connection);
                         return;
+                    }else{
+                        if(connectionFrom == CONNECTION_FROM_SERVER){
+                            debug(LEVEL_0, "vncWebInterface: ID >>%ld\n", code);
+                        } 
+                        
                     }
                 }
             }
@@ -1951,7 +1954,6 @@ static void dropRootPrivileges()
     struct passwd *pw;
     
     pw = getpwnam(runAsUser);
-    debug(LEVEL_1, "Run As User: %s\n", runAsUser);
 
     if (pw != NULL) {
         if (0 != setgid(pw -> pw_gid)) {
@@ -1975,9 +1977,8 @@ static void dropRootPrivileges()
         else
             debug(LEVEL_1, "dropRootPrivileges(): privileges successfully dropped, now running as user %s\n", runAsUser);
     }
-    else {
-        fatal("dropRootPrivileges(): getpwnam() failed, please open the file (%s) and check the 'runasuser' field\n", DEFAULT_INI_FILE_PATH_AND_NAME); 
-    }
+    else
+        fatal("dropRootPrivileges(): getpwnam() failed\n");    
 }
 
 
@@ -2006,8 +2007,7 @@ int main(int argc, char **argv)
     fprintf(stderr, "UltraVnc Linux Repeater version %s\n", REPEATER_VERSION);
     
     //Read parameters from ini file
-    // strlcpy(tmpBuf, (argc >= 2) ? argv[1] : defaultIniFilePathAndName, MAX_PATH);
-    strlcpy(tmpBuf, (argc >= 2) ? argv[1] : DEFAULT_INI_FILE_PATH_AND_NAME, MAX_PATH);
+    strlcpy(tmpBuf, (argc >= 2) ? argv[1] : defaultIniFilePathAndName, MAX_PATH);
     if (false == readIniFile(tmpBuf)) {
         debug(LEVEL_1, "main(): ini file (%s) read error, using defaults\n", tmpBuf);
     }
