@@ -58,8 +58,9 @@ srvListDeny0 = 127.0.0.1 ;Deny loopback
 requirelistedserver=1
 ```
 ## Start the service
+
 ```
-/etc/init.d/uvncrepeater start
+sudo service uvncrepeater start
 ```
 
 Enjoy!
