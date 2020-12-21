@@ -40,7 +40,7 @@ sudo chmod u+x ./install.sh
 sudo make install;
 sudo service uvncrepeater start
 ```
-
+## Tips:
 ## Add a user for the service
 ```
 useradd uvncrep
@@ -56,10 +56,10 @@ srvListAllow1 = 192.168.0.0 ;Allow network 192.168.x.x
 srvListDeny0 = 127.0.0.1 ;Deny loopback
 requirelistedserver=1
 ```
-## Start the service
+## Restart the service
 
 ```
-sudo service uvncrepeater start
+sudo service uvncrepeater restart
 ```
 
 Enjoy!
