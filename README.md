@@ -3,7 +3,42 @@
 I developed a web page that allows you to see which servers are connected to your uvnc repeater (for linux only)
 
 # Step 1 - You must recompile and reinstall your repeater for linux, or you must install your repeater
-Download the folder "uvncRepeater" and follow the istruction in the original readme
+# Get build packages
+For Debian use:
+```
+sudo apt-get install linux-headers-`uname -r` libx11-6 libx11-dev x-window-system-core x-window-system libxtst6 psmisc build-essential
+```
+
+# Clone this repository and install it 
+```
+git clone https://github.com/DamianoP/uvncrep017-ws.git
+cd uvncrep017-ws/uvncRepeater
+sudo make
+sudo chmod u+x ./install.sh
+sudo make install;
+sudo service uvncrepeater start
+```
+# Tips:
+# Add a user for the service
+```
+useradd uvncrep
+```
+# Edit /etc/uvnc/uvncrepeater.ini according to your needs.
+# Check the following parameters:
+```
+viewerport = 5901
+maxsessions = 10
+runasuser = uvncrep
+logginglevel = 2
+srvListAllow1 = 192.168.0.0 ;Allow network 192.168.x.x
+srvListDeny0 = 127.0.0.1 ;Deny loopback
+requirelistedserver=1
+```
+# Restart the service
+
+```
+sudo service uvncrepeater restart
+```
 
 # Step 2 - make sure you have assigned the correct read permissions to the following files for example
 
