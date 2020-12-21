@@ -1,4 +1,4 @@
-# Note: this is the original readme from https://github.com/qian-jiahong/uvncrep017-ws
+# Note:
 # I have only changed in the file repeater.cpp the code  
 ```
 if (requireListedId) {
@@ -22,8 +22,7 @@ if (requireListedId) {
   }
 }
 ```
-# The original author is https://github.com/qian-jiahong/uvncrep017-ws
-# _____________________________________
+
 # UltraVNC Repeater
 
 ## How to install UltraVNC Repeater for Linux (Debian)
