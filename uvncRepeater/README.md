@@ -63,7 +63,3 @@ sudo service uvncrepeater restart
 ```
 
 Enjoy!
-
-P.S. You can also check our post at:
-
-http://forum.ultravnc.info/viewtopic.php?p=80701
