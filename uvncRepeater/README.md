@@ -33,8 +33,10 @@ For Debian use:
 sudo apt-get install linux-headers-`uname -r` libx11-6 libx11-dev x-window-system-core x-window-system libxtst6 psmisc build-essential
 ```
 
-## Clone this repository, then 
+## Clone this repository and install it 
 ```
+git clone https://github.com/DamianoP/uvncrep017-ws.git
+cd uvncrep017-ws/uvncRepeater
 sudo make
 sudo chmod u+x ./install.sh
 sudo make install;
