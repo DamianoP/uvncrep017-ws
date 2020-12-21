@@ -71,3 +71,29 @@ idlist1=12347;kitchenPC
 # Example Image:
 <img width="600" height="290" src="example.png?raw=true">
 
+
+# Note:
+# I have changed in the original file repeater.cpp a little piece of code and created the webpage
+```
+if (requireListedId) {
+  if (!isCodeInIdList(code)) {
+    debug(LEVEL_2,"acceptConnection(): Id code does not match codes in list, closing connection\n", code);
+    close(connection);
+    return;
+}
+```
+# with
+```
+if (requireListedId) {
+  if (!isCodeInIdList(code)) {
+    debug(LEVEL_2,"acceptConnection(): Id code does not match codes in list, closing connection\n", code);
+    close(connection);
+    return;
+  }else{
+      if(connectionFrom == CONNECTION_FROM_SERVER){
+        debug(LEVEL_0, "vncWebInterface: ID >>%ld\n", code);
+      } 
+  }
+}
+```
+
